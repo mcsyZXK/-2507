@@ -1,0 +1,43 @@
+server:
+  port: 4096
+  servlet:
+    context-path: /zxk
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  application:
+    name: springbootstart
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/clzl
+    username: mcsy
+    password: 040105ZXK
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:/static/,/upload/
+  servlet:
+    multipart:
+      max-file-size: 100MB
+  data:
+    redis:
+      port: 6379
+      host: localhost
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: info                  # 全局日志级别
+    com.zxk: debug      # 指定包下的日志级别
+  file:
+    name: logs/app.log          # 日志文件路径（自动按日归档）
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
